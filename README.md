@@ -32,3 +32,5 @@ Dependencies
 
 - lxml
 - docopt
+
+Just run `pip install -r requirements.txt`.
