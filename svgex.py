@@ -18,7 +18,7 @@ import itertools
 from hashlib import sha1
 
 import docopt
-from lxml import etree
+from lxml.etree import XMLParser, parse
 
 ImageData = namedtuple('ImageData', 'data extension id')
 
@@ -82,8 +82,12 @@ def get_image_hash(image_data):
     return sha1(image_data.data).digest()
 
 
+def parse_svg(svg_path):
+    p = XMLParser(huge_tree=True)
+    return parse(svg_path, parser=p)
+
 def extract_all_images(svg_path, target_directory, new_svg_path=None, remove_dups=False):
-    tree = etree.parse(svg_path)
+    tree = parse_svg(svg_path)
     svg_dir = os.path.dirname(svg_path)
 
     if new_svg_path:
