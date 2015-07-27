@@ -1,7 +1,7 @@
 SVGeX
 =====
 
-Extract all images from your oversized SVGs and turn them from embedded images to linked images.
+Get the embedded images out of your oversized SVGs and link them instead!
 
 
 Usage
